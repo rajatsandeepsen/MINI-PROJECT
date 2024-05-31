@@ -148,24 +148,53 @@ There have been two versions of the model named CNN\_Model\_0 and CNN\_Model\_1.
     \end{tabular}
 \end{table}
 
+% \begin{table}[h!]
+%   \centering
+%   \caption{Performance metrics comparison for two versions of CNN Models}
+%   \vspace{1.5mm}
+%   \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+%   \hline
+%    & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \text{None} & \text{Overall} \\ \hline
+%   \multicolumn{11}{|c|}{\text{CNN\_Model\_0}} \\ \hline
+%   \text{Precision} & 0.99 & 0.99 & 0.99 & 0.99 & 0.98 & 0.99 & 0.98 & 0.99 & 1 & 0.988 \\ \hline
+%   \text{Recall} & 1 & 1 & 0.98 & 0.96 & 0.99 & 0.98 & 0.99 & 0.99 & 1 & 0.987 \\ \hline
+%   \text{F1-Score} & 1 & 0.99 & 0.99 & 0.98 & 0.98 & 0.99 & 0.99 & 0.99 & 1 & 0.999 \\ \hline
+%   \multicolumn{11}{|c|}{\text{CNN\_Model\_1}} \\ \hline
+%   \text{Precision} & 0.99 & 0.98 & 0.98 & 0.99 & 0.99 & 0.99 & 0.99 & 0.99 & 1 & 0.988 \\ \hline
+%   \text{Recall} & 0.99 & 0.99 & 0.99 & 0.98 & 0.98 & 0.98 & 0.99 & 0.98 & 1 & 0.986 \\ \hline
+%   \text{F1-Score} & 0.99 & 0.99 & 0.98 & 0.98 & 0.99 & 0.99 & 0.99 & 0.99 & 1 & 0.988 \\ \hline
+%   \end{tabular}
+% \end{table}
+
+
 \begin{table}[h!]
   \centering
-  \caption{Performance metrics comparison for two versions of CNN Models}
+  \caption{Performance metrics comparison for Large Language Models}
   \vspace{1.5mm}
-  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-  \hline
-   & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \text{None} & \text{Overall} \\ \hline
-  \multicolumn{11}{|c|}{\text{CNN\_Model\_0}} \\ \hline
-  \text{Precision} & 0.99 & 0.99 & 0.99 & 0.99 & 0.98 & 0.99 & 0.98 & 0.99 & 1 & 0.988 \\ \hline
-  \text{Recall} & 1 & 1 & 0.98 & 0.96 & 0.99 & 0.98 & 0.99 & 0.99 & 1 & 0.987 \\ \hline
-  \text{F1-Score} & 1 & 0.99 & 0.99 & 0.98 & 0.98 & 0.99 & 0.99 & 0.99 & 1 & 0.999 \\ \hline
-  \multicolumn{11}{|c|}{\text{CNN\_Model\_1}} \\ \hline
-  \text{Precision} & 0.99 & 0.98 & 0.98 & 0.99 & 0.99 & 0.99 & 0.99 & 0.99 & 1 & 0.988 \\ \hline
-  \text{Recall} & 0.99 & 0.99 & 0.99 & 0.98 & 0.98 & 0.98 & 0.99 & 0.98 & 1 & 0.986 \\ \hline
-  \text{F1-Score} & 0.99 & 0.99 & 0.98 & 0.98 & 0.99 & 0.99 & 0.99 & 0.99 & 1 & 0.988 \\ \hline
+  \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+    MODEL & API ID & INDEX (Normalized avg) & CONTEXT WINDOW & MMLU & MEDIAN (Tokens/s) \\
+    Claude   3 Opus & anthropic.claude-3-opus-20240229-v1:0 & 100 & 200k & 0.868 & 27.5 \\
+    GPT-4 & gpt-4 & 90 & 8k & 0.864 & 17.5 \\
+    Llama   3 (70B) & Llama3-70b-8192 & 88 & 8k & 0.82 & 307.3 \\
+    Claude   3 Sonnet & anthropic.claude-3-sonnet-20240229-v1:0 & 85 & 200k & 0.79 & 59.4 \\
+    Mixtral   8x22B & mistralai/Mixtral-8x22B-Instruct-v0.1 & 83 & 65k & 0.77752 & 49.9 \\
+    Claude   3 Haiku & anthropic.claude-3-haiku-20240307-v1:0 & 78 & 200k & 0.752 & 85.4 \\
+    Claude   Instant & anthropic.claude-instant-v1 & 65 & 100k & 0.734 & 84.2 \\
+    Mixtral   8x7B & mixtral-8x7b-instruct & 68 & 16k & 0.706 & 117.1 \\
+    GPT-3.5   Turbo & gpt-3.5-turbo & 67 & 16k & 0.7 & 58.5 \\
+    GPT-3.5   Turbo & gpt-35-turbo & 67 & 16k & 0.7 & 54 \\
+    Llama   2 Chat (70B) & llama2-70b-4096 & 56 & 4k & 0.689 & 251.5 \\
+    Llama   3 (8B) & llama-3-8b-instruct & 58 & 8k & 0.684 & 121.4 \\
+    Llama   3 (8B) & Llama3-8b-8192 & 58 & 8k & 0.684 & 920.8 \\
+    Mistral   7B & Mistral_7B_Instruct & 40 & 4k & 0.625 & 230.6 \\
+    Mistral   7B & mistral-7b-instruct & 40 & 16k & 0.625 & 102.9 \\
+    Mistral   7B & mistralai/Mistral-7B-Instruct-v0.1 & 40 & 8k & 0.625 & 77.6 \\
+    Mistral   7B & mistralai/mistral-7b-instruct-v0.2 & 40 & 33k & 0.625 & 93.2 \\
+    Llama   2 Chat (13B) & meta/llama-2-13b-chat & 37 & 4k & 0.536 & 115.3 \\
+    Llama   2 Chat (7B) & meta/llama-2-7b-chat & 27 & 4k & 0.458 & 204.7
   \end{tabular}
 \end{table}
-
 \clearpage
 
 \section{Comparison with State-of-the-Art Methods}
@@ -257,16 +286,16 @@ LeNet-5 is a classic convolutional neural network architecture designed by Yann 
 \begin{figure}[htbp]
   \centering
 
-  \includegraphics[width=0.45\textwidth]{Images/Results_Discussions/CNN\_Model\_1 ADAM.png}
+  % \includegraphics[width=0.45\textwidth]{Images/Results_Discussions/CNN\_Model\_1 ADAM.png}
   \hfill
-  \subfigure{\includegraphics[width=0.45\textwidth]{Images/Results_Discussions/Lanet5 ADAM.png}}
+  % \subfigure{\includegraphics[width=0.45\textwidth]{Images/Results_Discussions/Lanet5 ADAM.png}}
   \caption{Model Comparison: CNN Model 1 vs LeNet5 with ADAM Optimizer}
 
   \vspace{0.5cm} % Adjust the vertical spacing between the rows of images
 
-  \subfigure{\includegraphics[width=0.45\textwidth]{Images/Results_Discussions/CNN\_Model\_1 SGD.png}}
+  % \subfigure{\includegraphics[width=0.45\textwidth]{Images/Results_Discussions/CNN\_Model\_1 SGD.png}}
   \hfill
-  \subfigure{\includegraphics[width=0.45\textwidth]{Images/Results_Discussions/Lanet5 SGD.png}}
+  % \subfigure{\includegraphics[width=0.45\textwidth]{Images/Results_Discussions/Lanet5 SGD.png}}
   \caption{Model Comparison: CNN Model 1 vs LeNet5 with SGD Optimizer}
   
 \end{figure}
