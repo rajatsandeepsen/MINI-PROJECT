@@ -94,12 +94,10 @@ These literature reviews provides knowledge about the existing researches done b
 % [3] Categorizing the Student's Actvities for  Automated Exam Proctoring using Proposed Deep L2-Grafnet CNN Network and Feature Selection Approach by Muhammad Sharif assisted by Amjad Rehman.In this research paper the had used Deep Learning Approach for the analysis of categorization of student activities during exam.A new deep CNN Architecture  with 46 layers is proposed which contains the characteristics of deep AlexNet and Squeezenet.The proposed model is first coverted to a pretrained model by performing its traing with Softmax Classifier with the CIFAR-`100 dataset.The optimized features are passed to different variants of SVM and KNN Classifier.Thew output is obtained with a huge accuracy of 93.88 percentage using fine knn classifier.
 %   [4] Joseph Redmon,Santosh Divvala ,Ross Girshick,Ali Farhadi You Only Look Once:Unified Real-Time Object Detection 9 May 2016 ,It uses Convolution Neural Networks.Its unified Architecture enables efficient detection of objects across different classes.YOLO provides high accuracy and real time performance. [5] Rhitvik Pasricha ,Prathamesh  Churi ,A Systematic Review on AI-Bsed proctoring Systems:Past, Present,Future  September 2021.AIPS are increasingly popular for maintaining exam integrity .Security corncerns with AIPS are also increasing and they are impacting acceptance and exam results. OPS (Online Proctoring Systems) focuses on webcam recording and browser lockdown.Technical factors like network stability and human psychology affect proctoring effectiveness. 
 \section{Methodology}
-The approach of Sequential Function calling tool is using the popular and newest OpenAPI schema 3.0. By fetching the schema json from the backend url is converted to type parser like Zod (typescript) at build time. The prompt captured from the user is fed to LLM with proper type annotation of OpenAPI schema. Any popular open source model can be used to understand and extract object/json data from users prompts. The extracted data are then loaded into a custom JSON parser that supports extra keywords from standard JSON format. The parser moves the data to OpenAPI clients libraries like OpenAPI-Fetch (typescript) which fetch result from the backend. The result is then passed to the next function in the chain. The process is repeated until the end of the chain. But LLM is used once just to write "what to do in this environment" according to users prompts and type definition.
+The approach of Sequential Function calling tool is using the popular and newest OpenAPI schema 3.0. By fetching the schema json from the backend url is converted to type parser like Zod (npm) at build time. The prompt captured from the user is fed to LLM with proper type annotation of OpenAPI schema. Any popular open source model can be used to understand and extract object/json data from users prompts. The extracted data are then loaded into a custom JSON parser that supports extra keywords from standard JSON format. The parser moves the data to OpenAPI clients libraries like OpenAPI-Fetch (npm) which fetch result from the backend. The result is then passed to the next function in the chain. The process is repeated until the end of the chain. But LLM is used once just to write "what to do in this environment" according to users prompts and type definition.
 
 \subsection{Schema Preparation}\label{AA}
-The preparation of the dataset for an offline exam proctoring system that utilizes artificial intelligence is a crucial step in ensuring the accuracy and efficiency of the system. This process involves collecting relevant data, cleaning and preprocessing, and then structuring it in a way that is conducive to training machine learning model. The recorded footage of exams were obtained and a YOLOv8 model trained by Ultralytics on COCO dataset was used to detect the students on the frame, the detected images of students were isolated from the input frames and saved into a folder. Later these obtained images were resized to 224*224px and labeled using the roboflow platform into two classes, "cheating " and "non-cheating".The dataset contained a total of 2813 images which were splitted into training, validation, and testing at a ratio 70:20:10 
-
-\usepackage{graphicx} % Assuming graphicx is already loaded
+The preparation of the schema at build time utilizes popular libraries like OpenAPI-TS (npm) and OpenAPI-Zod (npm). It'll generate types schema for using in few-shot learning of LLM and zod schema for parsing the input and return data to and from LLM. Feeding the LLM with raw OpenAPI schema is waste of tokens and context window, that's why it is a crucial step to create simpler version of schema. This process involves collecting openAPI schema JSON (by fetching from application backend server), parsing and preprocessing, and then structuring it in a way that is useful for teaching the language model. The recorded schema were obtained from backend frameworks that supports swagger-ui or other libraries that generates OpenAPI. Simplified parser schema and type are written to coding file (here typescript programming language is used) and saved into a folder. Later these obtained schema were resized to smaller chunks if schema is larger that models context window. Graph based structure is used to label and store nodes. This graph help to query through large schema in runtime. 
 
 \begin{figure}[htbp]
 \centering
@@ -111,11 +109,10 @@ The preparation of the dataset for an offline exam proctoring system that utiliz
 
 \subsection{Model Architecture}
 The AI-based offline exam proctoring system utilizes a specific model architecture.At the forefront of the YOLO series, YOLOv8 is distinguished by its real-time accuracy and intricate design, which blends spatial attention modules with convolutional neural networks (CNNs) for improved feature identification [13]. The 53 convolutional layers that make up the CSPDarknet53 backbone are key to its design; they effectively maximize feature extraction, which is important for identifying the students in the examination hall . YOLOv8 is suited to different processing requirements and comes in nano to extra- large configurations. The medium to extra-large variants are beneficial for detecting the students more accurately.
-\usepackage{graphicx} % Assuming graphicx is already loaded
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth, height=9cm]{images/ARC.jpeg}  % Adjust width and height
+\includegraphics[width=0.5\textwidth, height=9cm]{images/ARC.jpeg}
 \caption{Block Diagram of Proposed System.}
 \label{fig}
 \end{figure}
@@ -324,7 +321,7 @@ In essence, the system processes each frame of the video stream, identifying peo
      Automated Exam Proctoring using Proposed DeepL2-GraftNet CNN Network and ASO Based Feature Selection Approach, March 2021
 
 [7]  M. Ghizlane, B. Hicham, and F. H. Reda, "A New Modelof Automatic and             Continuous Online Exam Monitoring,"in 2019 International Conference on 
-     Systems of Collaboration Big Data, Internet of Things & Security
+     Systems of Collaboration Big Data, Internet of Things \& Security
     (SysCoBIoTS), 2019, pp. 1-5.
 
 [8]  Mabrouk, A.B., Zagrouba, E.: Abnormal behavior recognition for 
@@ -340,7 +337,7 @@ In essence, the system processes each frame of the video stream, identifying peo
 
 [11] B. Hariharan, P. Arbelaez, R. Girshick, and J. Malik. Simultaneous               detection and segmentation. In Computer Vision–ECCV 2014, pages 297–312.         Springer, 2014.     
 
-[12] Saba, T., Rehman, A., Jamail, N. S. M., Marie-Sainte, S. L., Raza, M.,\ &         Sharif, M. (2021).Categorizing the students’ activities for automated exam       proctoring using proposed deep L2-GraftNet CNN network and ASO based             feature selection approach. IEEE Access, 9, 47639–47656. https://doi.org/        10.1109/ACCESS.2021.3068223
+[12] Saba, T., Rehman, A., Jamail, N. S. M., Marie-Sainte, S. L., Raza, M.,\&         Sharif, M. (2021).Categorizing the students’ activities for automated exam       proctoring using proposed deep L2-GraftNet CNN network and ASO based             feature selection approach. IEEE Access, 9, 47639–47656. https://doi.org/        10.1109/ACCESS.2021.3068223
 [13]Ultralytics Accessed: 04.08.2023 [Online]
     Available: https://www.ultralytics.com/
 
