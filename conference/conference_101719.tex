@@ -97,32 +97,69 @@ These literature reviews provides knowledge about the existing researches done b
 The approach of Sequential Function calling tool is using the popular and newest OpenAPI schema 3.0. By fetching the schema json from the backend url is converted to type parser like Zod (npm) at build time. The prompt captured from the user is fed to LLM with proper type annotation of OpenAPI schema. Any popular open source model can be used to understand and extract object/json data from users prompts. The extracted data are then loaded into a custom JSON parser that supports extra keywords from standard JSON format. The parser moves the data to OpenAPI clients libraries like OpenAPI-Fetch (npm) which fetch result from the backend. The result is then passed to the next function in the chain. The process is repeated until the end of the chain. But LLM is used once just to write "what to do in this environment" according to users prompts and type definition.
 
 \subsection{Schema Preparation}\label{AA}
-The preparation of the schema at build time utilizes popular libraries like OpenAPI-TS (npm) and OpenAPI-Zod (npm). It'll generate types schema for using in few-shot learning of LLM and zod schema for parsing the input and return data to and from LLM. Feeding the LLM with raw OpenAPI schema is waste of tokens and context window, that's why it is a crucial step to create simpler version of schema. This process involves collecting openAPI schema JSON (by fetching from application backend server), parsing and preprocessing, and then structuring it in a way that is useful for teaching the language model. The recorded schema were obtained from backend frameworks that supports swagger-ui or other libraries that generates OpenAPI. Simplified parser schema and type are written to coding file (here typescript programming language is used) and saved into a folder. Later these obtained schema were resized to smaller chunks if schema is larger that models context window. Graph based structure is used to label and store nodes. This graph data structure will help to query through large schema faster in runtime. 
+The preparation of the schema at build time utilizes popular libraries like OpenAPI-TS (npm) and OpenAPI-Zod (npm). It'll generate types schema for using in few-shot learning of LLM and zod schema for parsing the input and return data to and from LLM. Feeding the LLM with raw OpenAPI schema is waste of tokens and context window, that's why it is a crucial step to create simpler version of schema. This process involves collecting openAPI schema JSON (by fetching from application backend server), parsing and preprocessing, and then structuring it in a way that is useful for teaching the language model. 
+
+The recorded schema were obtained from backend frameworks that supports swagger-ui or other libraries that generates OpenAPI. Simplified parser schema and type are written to coding file (here typescript programming language is used) and saved into a folder. Later these obtained schema were resized to smaller chunks if schema is larger that models context window. Graph based structure is used to label and store nodes. This graph data structure will help to query through large schema faster in runtime. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/without-finetuning.png}  
+    \caption{Block Diagram for Normal In-context Learning}
+    \label{fig}
+\end{figure}
+
+\subsection{Prompt Preparation}
+Alway the LLM is instructed to return response in <JSON> tags, making the data easier to extract from string. Also available functions list (or schema from OpenAPI) is converted to easy type definitions, which makes easier to understand by the LLMs. 
+
+But normally open source LLMs are stupid without examples. They are trained on general knowledge, that why its important for few shot in-context learning to make it understand the environment.
+
+Also fine tuning approach is also great if type definition and instructions is larger than context window of the LLM using. Teach the Model with entire OpenAPI schema and examples before deploying to production give better result in response and saves lot of tokens while prompting each time. 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth, height=7cm]{images/block.jpeg}  % Adjust width and height
-\caption{Block Diagram Dataset Creation.}
+\includegraphics[width=0.5\textwidth]{images/fine-tuned.png}  
+\caption{Block Diagram for Fine tuned learning}
 \label{fig}
 \end{figure}
 
 \subsection{Server Architecture}
 Initially developer specifies the backend URL and OpenAPI schema URL in the configuration file. The CLI fetches the schema from the backend applications and preparation the schema at build time. The server is an standalone backend that listens to end users prompts. Server takes user prompt, type definition of OpenAPI schema and sends to LLM. The developer also need to mentions the provider and model in configuration file. Then the LLM return with some JSON data wrapped with <JSON> tag. The data shows "what to run", "where to fetch" and "what are the parameter and request body". The server then parses the JSON data and sends to the Action engine. The engine take care of function calling and chaining. Finally the result is sent back to user in JSON format (or stream the UI if server is built with meta-frameworks like Next.js or Nuxt.js).
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/server.png}
+    \caption{Simplified Maths problem done with Function Calling.}
+    \label{fig}
+\end{figure}
+
 
 \subsection{Action Engine Architecture}
-The Action engine architecture follow the same pattern as the build time CLI (CLI that converts the OpenAPI schema to type definitions). Action engine is not an AI system. Currently it is a simple JSON parser that can understand the JSON data from LLM. It turns normal Large Language Model to an Simple Action Model, that enables function calling and chaining. Let consider a simple application mathematical calculations, the user asked "what is 10 + 2 / 4" and Action engine had access to all type of mathematical functions. So the LLM return "[{ variable:'A', operation: 'division', parameters:[2, 4] }, { variable:'B', operation: 'addition', parameters:[10, 'A'] }]" and the Action engine will execute the function in the order of the array. The result is then sent back to the user. Here unknown variable is generated and used at runtime. Type structure of return JSON can be customized. Here this JSON is enough to represent environment. JSON is parsed and validated by engine and array to moved to execution stack and each function is called sequentially, where result of previous execution is stored in heap runtime.
+The Action engine architecture follow the same pattern as the build time CLI (CLI that converts the OpenAPI schema to type definitions). Action engine is not an AI system. Currently it is a simple JSON parser that can understand the JSON data from LLM. It turns normal Large Language Model to an Simple Action Model, that enables function calling and chaining. 
+
+Let consider a simple application mathematical calculations, the user asked "what is 10 + 2 / 4" and Action engine had access to all type of mathematical functions. So the LLM return instructions in JSON tag and the Action engine will execute the function in the order of the instructions. The result is then sent back to the user. 
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/maths.png}
+    \caption{Simplified Maths problem done with Function Calling.}
+    \label{fig}
+\end{figure}
+
+The new unknown variable is generated and used at runtime. Type structure of return JSON can be customized. Here this JSON is enough to represent environment. JSON is parsed and validated by engine and array to moved to execution stack and each function is called sequentially, where result of previous execution is stored in heap at runtime.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth, height=9cm]{images/ARC.jpeg}
-\caption{Block Diagram of Proposed System.}
+\includegraphics[width=0.5\textwidth]{images/action-engine.png}
+\caption{Block Diagram of Action Engine Architecture}
 \label{fig}
 \end{figure}
 
-For the classification of data, the VGG-16 Classifier has been employed. This classifier is known for its effectiveness in accurately categorizing various types of data. By utilizing this classifier, the system can efficiently determine whether a given frame falls under the "cheating" or "not cheating" category.
+Two type of instructions can be evaluated. Single: parse the json, execute the function, done. But for multiple sequential instructions require careful validations and parsing. First execution of function requires complete set of parameters. Always store the executed data and function parameters in heap. If other instructions requires data from previous execution, search in input params list in stack or search heap. If data is not found, return error (and let the server handle that part).
 
-To ensure consistency and compatibility, the input frames are standardized to a size of 224 pixels by 224 pixels. This standardization allows for seamless processing and analysis of the frames, enabling the system to effectively detect any instances of cheating during the exam.
+To ensure consistency and compatibility, the input data params and output result from each execution is also validated before passing down to next instructions. This standardization allows for seamless processing and execution of function calling, enabling the system to effectively detect any instances of error made by language model.
+
+The permission is the list of functions that are allowed to run without users concerns. If a function is true, then execute it without asking for permission. If not then return the current result stack of execution back to user and wait until user permits. This feature is crucial while building high secure and user data depended applications. Users don't want any LLM to take decisions and execute some functionalities by its own without their permissions.
 
 
 \subsection{Model Training}
@@ -164,7 +201,7 @@ The video feed of the exam environment is segmented into a grid of cells, and em
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth, height=10cm]{images/detection.jpeg}  % Adjust width and height
+\includegraphics[width=0.5\textwidth, height=10cm]{images/detection.jpeg}  
 \caption{Predicted Output From the Model}
 \label{fig}
 \end{figure}
@@ -193,7 +230,7 @@ The VGG16 classifier which was trained in house using our custom data set showed
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth, height=7cm]{images/Vgg16acc.png}  % Adjust width and height
+\includegraphics[width=0.5\textwidth, height=7cm]{images/Vgg16acc.png}  
 \caption{Accuracy of Vgg16}
 \label{fig}
 \end{figure}
@@ -290,7 +327,7 @@ Loss&68&76\\
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth, height=7cm]{images/AlexNet.png}  % Adjust width and height
+\includegraphics[width=0.5\textwidth, height=7cm]{images/AlexNet.png}  
 \caption{Accuracy of AlexNet}
 \label{fig}
 \end{figure}
