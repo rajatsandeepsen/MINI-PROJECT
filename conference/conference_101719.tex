@@ -161,43 +161,40 @@ To ensure consistency and compatibility, the input data params and output result
 
 The permission is the list of functions that are allowed to run without users concerns. If a function is true, then execute it without asking for permission. If not then return the current result stack of execution back to user and wait until user permits. This feature is crucial while building high secure and user data depended applications. Users don't want any LLM to take decisions and execute some functionalities by its own without their permissions.
 
+% \begin{table}[htbp]
+% \caption{VGG16 Classifier}
+% \label{tab2} % Label for referencing later
+% \begin{center}
+% \begin{tabular}{|c|c|}
+% \hline
+% \textbf{VGG16 parameters} & \textbf{parameter values} \\ % Bold headers
+% \hline
+% Batch size & 32 \\ % Second row
+% \hline
+% Epochs& 50 \\
+% \hline
+% Optimizer& adam\\
+% \hline
+% Class mode& Categorical\\
+% \hline
+% loss & categorical\_crossentropy \\
 
-\subsection{Model Training}
-The design of the offline exam proctoring system utilizing artificial intelligence has been structured to ensure efficient monitoring and supervision during examinations. This model architecture incorporates advanced AI technology to detect and prevent any form of cheating or misconduct during offline exams.
-
-YOLOv8 pre-trained on COCO dataset, enabling it to learn and generalize patterns by exposing it to real-time environment. The Convolutional Neural Network (CNN) backbone serves as a feature extractor,learning essential patterns from input images.
-
-A VGG16 Image classifier trained on a custom dataset to identify the "cheating" and "non-cheating" behaviour. The transfer learning technique is used in the classifiers training to reduce the time and effort to train the classifier.
-\begin{table}[htbp]
-\caption{VGG16 Classifier}
-\label{tab2} % Label for referencing later
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-\textbf{VGG16 parameters} & \textbf{parameter values} \\ % Bold headers
-\hline
-Batch size & 32 \\ % Second row
-\hline
-Epochs& 50 \\
-\hline
-Optimizer& adam\\
-\hline
-Class mode& Categorical\\
-\hline
-loss & categorical\_crossentropy \\
-
-\hline
-%\multicolumn{2}{l}{$^{\text{a}}$Footnote text here.} % Footnote
-\end{tabular}
-\end{center}
-\end{table}
+% \hline
+% %\multicolumn{2}{l}{$^{\text{a}}$Footnote text here.} % Footnote
+% \end{tabular}
+% \end{center}
+% \end{table}
 
 
 
 
 
-\subsection{Object Detection}
-The video feed of the exam environment is segmented into a grid of cells, and employing a YOLOv8-like methodology, the object detection model detects students within each cell. This grid-based methodology enables the system to perform simultaneous monitoring of the entire exam setting, facilitating comprehensive detection coverage throughout the entirety of the video feed.
+\subsection{Utilizing Vector storage}
+Retrieval Augmented Generation (RAG) is a popular technique used alongside with large language models (LLMs) to improve its performance by including external knowledge sources. Mostly here we can utilize it with help of vector databases. 
+
+OpenAPI schema format supports descriptions and examples. These descriptions can be stored in vector database alongside the meta data of each API routes or components. If the application OpenAPI schema is larger than context window capacity of the LLM, then utilization of vector databases can still reduce the no of request to LLMs. Query the vector database with user prompt and get most probable API route or component. Then combine the results with user prompt to get response from LLM. This approach is faster and efficient than querying the LLMs with large amount of OpenAPI schema.
+
+RAG based Action model is much more efficient when it comes to usage of token while querying. Less the no of tokens used, faster the model respond.
 
 \begin{figure}[htbp]
 \centering
@@ -207,13 +204,15 @@ The video feed of the exam environment is segmented into a grid of cells, and em
 \end{figure}
 
 
-\subsection{Classification}
-The classification of offline exam proctoring systems has undergone a significant transformation with the integration of artificial intelligence (AI). By leveraging a dataset that has been meticulously annotated in roboflow, the system can effectively discern between the various behaviors displayed by students during exams using VGG16 classifier, specifically focusing on distinguishing between cheating and non-cheating actions.
+\subsection{Utilizing runtime validations}
+Action models requires strict parsing and validations with OpenAPI schema. LLMs hallucinate sometimes, making it untrust worthy to take decisions. That's why it is important to validate the input and output data from fetching the API. But what if the LLM can just go around the world wide web and fetch the schema of the API and validate at runtime and cache it. This approach is much more futuristic than it sounds. The user prompts, LLM looks for relevant schema from Google search and call those APIs. While system is looking for docs, it can build validators and parsers for the schema at runtime. Also utilize caching mechanism to store the build files for future use. 
 
-\subsection{Output and Utilization}
- The utilization of offline exam proctoring system powered by AI not only promotes academic integrity but also improves the overall efficiency of the examination process. With AI technology, institutions can automate the monitoring and evaluation of exams, saving time for both educators and students. This streamlined approach enhances the productivity of exam administration while maintaining the quality and accuracy of assessments.
+It's like google search, but instead of querying, it'll do stuffs online by itself. An inevitable future of language models. 
 
- Along with real-time detection, images of student who attempted to commit malpractices during the exam are also saved to a folder for later cross references with their confidence score.
+\subsection{Utilizing multiple calls to LLM}
+Popular function calling projects like ReAct utilizes multiple call to LLM to make sure to get the best result and response is moving in right directions. This approach is also useful in Action model. If the response from LLM is not clear or not understandable, then a second call to LLM can be reduce the errors.
+
+This paper was focused on "how to sequentially function call with one query to LLM". But multiple calls to LLM can be useful in some cases. If return data of previously executed function may not be clear or not understandable. Or the data can so long that, without intermediate assistance, it may not reach the end goal as user expected.
 
 \section{Implementation and Result}
 \subsection{Implementation}
