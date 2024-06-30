@@ -65,33 +65,26 @@ prithvirajr0306@gmail.com}
 \maketitle
 
 \begin{abstract}
- Today LLMs are everywhere, it is making human internet life a lot easier than ever.
-Everyday new sophisticated models are releasing. But these models are not good enough to become
-the personal assistant like the Jarvis from Sci-fi movie IronMan. This paper proposes
-a way to enable any LLM to execute complex requirements in real world applications. By
-leveraging state-of-the-art Large Language models, we can create a simple action model that can 
-understand environment around them. Eventually these models can help or assist humans in real time applications.
-The Sequential Function Calling Tool Chain System
-aims to bridge the gap between human language understandings and computer programming.
+    Today, LLMs are everywhere. It is making human internet life a lot easier than ever. Every day new sophisticated models are released. But these models are not good enough to become personal assistants like the Jarvis from the Sci-fi movie IronMan. This paper proposes a way to enable any LLM to execute complex requirements in real-world applications. By leveraging state-of-the-art Large Language models, we can create a simple action model that can understand the environment around them. Eventually, these models can help or assist humans in real-time applications. The Sequential Function Calling Tool Chain System aims to bridge the gap between human language understanding and computer programming.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Large language model, Action model, OpenAPI format and Function Calling Tools
+    Large language model, Action model, OpenAPI format, and Function Calling Tools
 \end{IEEEkeywords}
 
 \section{Introduction}
-Now on a world without AI is impossible to imagine. New models will comes everyday, and new architecture will improve its performance. Multi Modality or Mixture of Models are not enough to become the personal assistant. Graph based models takes up lot of computation in the case of complex function calling. Simple Question, "what if the one good model with one request is enough to execute multiple functions sequentially?".
+Nowadays, a world without AI is impossible to imagine. New models will come every day, and new architecture will improve its performance. Multi-modality or a Mixture of Models is not enough to become a personal assistant. Graph-based models take up a lot of computation in the case of complex function calling. Simple Question, ” What if the one good model with one request is enough to execute multiple functions sequentially?”.
 
-The integration of openAPI schema with LLM can make a decent action model that can understand the API specs of that specific applications. The large language model will take prompts and decides what to do. From programming side, we'll parse the information and execute. Simple action model is done. 
+The integration of OpenAPI schema with LLM can make a decent action model that can understand the API specs of that specific application. The large language model will take prompts and decide what to do. From the programming side, we’ll parse the information and execute it. A simple action model is done.
 
-By implementing a custom JSON parser alongside with an OpenAPI schema type system it is possible to utilize one model as main decision making inside an application. This technology works faster compared to other solutions, but requires much more intelligent language model.
+By implementing a custom JSON parser alongside an OpenAPI schema-type system it is possible to utilize one model as main decision making inside an application. This technology works faster compared to other solutions but requires a much more intelligent language model. 
 
-This helps to provide stable and intelligent AI assistant in any applications uphold the integrity and standards API formats. This research paper also leads to the exploration of Multiple and Sequential Function calling tool chain that utilizes State-of-the-Art Language model to enhance the security, time efficiency,flexibility for building AI applications. 
+This helps to provide stable and intelligent AI assistants in any applications that uphold the integrity and standards of API formats.This research paper also leads to the exploration of Multiple and Sequential Function calling toolchain that utilizes a State-of-the-Art Language model to enhance the security, time efficiency, and flexibility of building AI applications. 
 
-Purpose of this paper is to explore and improve existing solutions of Function calling tools available in open source software community. This paper also aims to provide a new approach to prompting the LLMs without fine tuning.
+The purpose of this paper is to explore and improve existing solutions of function calling tools available in the open-source software community. This paper also aims to provide a new approach to prompting the LLMs without fine-tuning.
 
 \section{Literature Survey}
-These literature reviews provides knowledge about the existing researches done by various scholars and open source developers. 
+These literature reviews provide knowledge about the existing research done by various scholars and open-source developers.
 
 [1] Luyu Gao, Aman Madaan, Shuyan Zhou, Uri Alon, Pengfei Liu, Yiming
 Yang, Jamie Callan, Graham Neubig, PAL: Program-aided
@@ -106,12 +99,12 @@ for Parallel Function Calling Jun 2024, They had introduced a new architecture o
 
 
 \section{Methodology}
-The approach of Sequential Function calling tool is using the popular and newest OpenAPI schema 3.0. By fetching the schema json from the backend url is converted to type parser like Zod (npm) at build time. The prompt captured from the user is fed to LLM with proper type annotation of OpenAPI schema. Any popular open source model can be used to understand and extract object/json data from users prompts. The extracted data are then loaded into a custom JSON parser that supports extra keywords from standard JSON format. The parser moves the data to OpenAPI clients libraries like OpenAPI-Fetch (npm) which fetch result from the backend. The result is then passed to the next function in the chain. The process is repeated until the end of the chain. But LLM is used once just to write "what to do in this environment" according to users prompts and type definition.
+The approach of the Sequential Function calling tool is using the popular and newest OpenAPI schema 3.0. By fetching the schema JSON from the backend url is converted to a type parser like Zod (npm) at build time. The prompt captured from the user is fed to LLM with proper type annotation of OpenAPI schema. Any popular open-source model can be used to understand and extract object/JSON data from user's prompts. The extracted data are then loaded into a custom JSON parser that supports extra keywords from standard JSON format. The parser moves the data to OpenAPI client libraries like OpenAPI-Fetch (npm) which fetches results from the backend. The result is then passed to the next function in the chain. The process is repeated until the end of the chain. But LLM is used once just to write ”what to do in this environment” according to users prompts and type definition.
 
 \subsection{Schema Preparation}\label{AA}
-The preparation of the schema at build time utilizes popular libraries like OpenAPI-TS (npm) and OpenAPI-Zod (npm). It'll generate types schema for using in few-shot learning of LLM and zod schema for parsing the input and return data to and from LLM. Feeding the LLM with raw OpenAPI schema is waste of tokens and context window, that's why it is a crucial step to create simpler version of schema. This process involves collecting openAPI schema JSON (by fetching from application backend server), parsing and preprocessing, and then structuring it in a way that is useful for teaching the language model. 
+The preparation of the schema at build time utilizes popular libraries like OpenAPI-TS (npm) and OpenAPI-Zod (npm). It’ll generate types schema for use in few-shot learning of LLM and zod schema for parsing the input and return data to and from LLM. Feeding the LLM with raw OpenAPI schema is a waste of tokens and context window, that’s why it is a crucial step to create a simpler version of schema. This process involves collecting open API schema JSON (by fetching from the application backend server), parsing and preprocessing, and then structuring it in a way that is useful for teaching the language model. 
 
-The recorded schema were obtained from backend frameworks that supports swagger-ui or other libraries that generates OpenAPI. Simplified parser schema and type are written to coding file (here typescript programming language is used) and saved into a folder. Later these obtained schema were resized to smaller chunks if schema is larger that models context window. Graph based structure is used to label and store nodes. This graph data structure will help to query through large schema faster in runtime. 
+The recorded schema was obtained from backend frameworks that support swagger-ui or other libraries that generate OpenAPI. Simplified parser schema and type are written to a coding file (here typescript programming language is used) and saved into a folder. Later this obtained schema was resized to smaller chunks if the schema is larger than the model's context window. The graph-based structure is used to label and store nodes. This graph data structure will help to query through large schema faster in runtime.
 
 \begin{figure}[htbp]
     \centering
@@ -121,11 +114,12 @@ The recorded schema were obtained from backend frameworks that supports swagger-
 \end{figure}
 
 \subsection{Prompt Preparation}
-Always the LLM is instructed to return response in <JSON> tags, making the data easier to extract from string. Also available functions list (or schema from OpenAPI) is converted to easy type definitions, which makes easier to understand by the LLMs. 
 
-But normally open source LLMs are stupid without examples. They are trained on general knowledge, that why its important for few shot in-context learning to make it understand the environment.
+The LLM is always instructed to return a response in JSON tags, making the data easier to extract from a string. Also, the available functions list (or schema from OpenAPI) is converted to easy, type definitions, which makes it easier to understand for the LLMs. 
 
-Also fine tuning approach is also great if type definition and instructions is larger than context window of the LLM using. Teach the Model with entire OpenAPI schema and examples before deploying to production give better result in response and saves lot of tokens while prompting each time. 
+But normally open source LLMs are stupid without examples. They are trained on general knowledge, and that's why a few shots of in-context learning are needed to make it understand the environment. 
+
+Also, the fine-tuning approach is great if the type definition and instructions are larger than the context window of the LLM used. Teach the Model with the entire OpenAPI schema and examples before deploying to production gives better results in response and saves a lot of tokens while prompting each time
 
 \begin{figure}[htbp]
 \centering
@@ -135,7 +129,7 @@ Also fine tuning approach is also great if type definition and instructions is l
 \end{figure}
 
 \subsection{Server Architecture}
-Initially developer specifies the backend URL and OpenAPI schema URL in the configuration file. Fetches the schema from the backend applications and prepare the schema at build time. The server is an standalone backend that listens to end user prompts. Server takes user prompt, type definition of OpenAPI schema and sends to LLM. The developer also need to mentions the provider and model in configuration file. Then the LLM return with some JSON data wrapped with JSON tag. The data shows "what to run", "where to fetch" and "what are the parameter and request body". Then parses the JSON data and sends to the Action engine. The engine take care of function calling and chaining. Finally result is sent back to user in JSON format (or stream the UI if server is built with meta-frameworks like Next.js or Nuxt.js).
+Initially, the developer specifies the backend URL and OpenAPI schema URL in the configuration file. Fetches the schema from the backend applications and prepares the schema at build time. The server is a standalone backend that listens to end-user prompts. The server takes the user prompt, types the definition of the OpenAPI schema, and sends it to LLM. The developer also needs to mention the provider and model in the configuration file. Then the LLM returns with some JSON data wrapped with JSON tag. The data shows ”what to run”, ”where to fetch” and ”what are the parameter and request body”. Then parses the JSON data and sends it to the Action engine. The engine takes care of function calling and chaining. Finally, the result is sent back to the user in JSON format (or stream the UI if the server is built with meta-frameworks like Next.js or Nuxt.js).
 
 \begin{figure}[htbp]
     \centering
@@ -146,9 +140,9 @@ Initially developer specifies the backend URL and OpenAPI schema URL in the conf
 
 
 \subsection{Action Engine Architecture}
-The Action engine architecture follow the same pattern as the build time CLI (CLI that converts the OpenAPI schema to type definitions). Action engine is not an AI system. Currently it is a simple JSON parser that can understand the JSON data from LLM. It turns normal Large Language Model to an Simple Action Model, that enables function calling and chaining. 
+The Action engine architecture follows the same pattern as the build time CLI (CLI that converts the OpenAPI schema to type definitions). An action engine is not an AI system. Currently, it is a simple JSON parser that can understand the JSON data from LLM. It turns the normal Large Language Model into a Simple Action Model, that enables function calling and chaining. 
 
-Let consider a simple application mathematical calculations, the user asked "what is 10 + 2 / 4" and Action engine had access to all type of mathematical functions. So the LLM return instructions in JSON tag and the Action engine will execute the function in the order of the instructions. The result is then sent back to the user. 
+Let's consider a simple application for mathematical calculations, the user asked ” What is 10 + 2 / 4” and the Action engine had access to all types of mathematical functions. So the LLM returns instructions in JSON tag and the Action engine will execute the function in the order of the instructions. The result is then sent back to the user.
 
 
 \begin{figure}[htbp]
@@ -158,7 +152,7 @@ Let consider a simple application mathematical calculations, the user asked "wha
     \label{fig}
 \end{figure}
 
-The new unknown variable is generated and used at runtime. Type structure of return JSON can be customized. Here this JSON is enough to represent environment. JSON is parsed and validated by engine and array to moved to execution stack and each function is called sequentially, where result of previous execution is stored in heap at runtime.
+The new unknown variable is generated and used at runtime. The type structure of return JSON can be customized. Here this JSON is enough to represent the environment. JSON is parsed and validated by the engine and array to moved to the execution stack and each function is called sequentially, where the result of the previous execution is stored in the heap at runtime.
 
 \begin{figure}[htbp]
 \centering
@@ -167,11 +161,11 @@ The new unknown variable is generated and used at runtime. Type structure of ret
 \label{fig}
 \end{figure}
 
-Two type of instructions can be evaluated. Single: parse the json, execute the function, done. But for multiple sequential instructions require careful validations and parsing. First execution of function requires complete set of parameters. Always store the executed data and function parameters in heap. If other instructions requires data from previous execution, search in input params list in stack or search heap. If data is not found, return error (and let the server handle that part).
+Two types of instructions can be evaluated. Single: parse the JSON, execute the function, done. But for multiple sequential instructions require careful validations and parsing. The first execution of the function requires a complete set of parameters. Always store the executed data and function parameters in the heap. If other instructions require data from a previous execution, search in the input params list in a stack or search heap. If data is not found, return an error (and let the server handle that part). 
 
-To ensure consistency and compatibility, the input data params and output result from each execution is also validated before passing down to next instructions. This standardization allows for seamless processing and execution of function calling, enabling the system to effectively detect any instances of error made by language model.
+To ensure consistency and compatibility, the input data parameters and output results from each execution are also validated before passing down to the next instructions. This standardization allows for seamless processing and execution of function calling, enabling the system to effectively detect any instances of an error made by the language model.
 
-The permission is the list of functions that are allowed to run without users concerns. If a function is true, then execute it without asking for permission. If not then return the current result stack of execution back to user and wait until user permits. This feature is crucial while building high secure and user data depended applications. Users don't want any LLM to take decisions and execute some functionalities by its own without their permissions.
+The permission is the list of functions that are allowed to run without users' concerns. If a function is true, then execute it without asking for permission. If not then return the current result stack of execution to the user and wait until the user permits. This feature is crucial while building highly secure and user data-dependent applications. Users don’t want any LLM to make decisions and execute some functionalities on its own without their permission.
 
 % \begin{table}[htbp]
 % \caption{VGG16 Classifier}
@@ -219,7 +213,7 @@ RAG based Action model is much more efficient when it comes to usage of token wh
 \subsection{Utilizing runtime validations}
 Action models requires strict parsing and validations with OpenAPI schema. LLMs hallucinate sometimes, making it untrust worthy to take decisions. That's why it is important to validate the input and output data from fetching the API. But what if the LLM can just go around the world wide web and fetch the schema of the API and validate at runtime and cache it. This approach is much more futuristic than it sounds. The user prompts, LLM looks for relevant schema from Google search and call those APIs. While system is looking for docs, it can build validators and parsers for the schema at runtime. Also utilize caching mechanism to store the build files for future use. 
 
-It's like google search, but instead of querying, it'll do stuffs online by itself. An inevitable future of language models. 
+It's like google search, but instead of querying, it'll do tasks online by itself. An inevitable future of language models. 
 
 \subsection{Utilizing multiple calls to LLM}
 Popular function calling projects like ReAct utilizes multiple call to LLM to make sure to get the best result and response is moving in right directions. This approach is also useful in Action model. If the response from LLM is not clear or not understandable, then a second call to LLM can be reduce the errors.
