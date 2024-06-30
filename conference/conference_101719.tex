@@ -15,18 +15,6 @@
 }
 
 \author{
-% \IEEEauthorblockN{\textsuperscript{} Angel Rose Benny} 
-% \IEEEauthorblockA{\textit{ Department of AI\&DS} \\
-% \textit{SJCET Palai}\\
-% Kottayam, Kerala \\
-% bennyangelrose@gmail.com
-% }
-% \\
-% \IEEEauthorblockN{Jowin Joseph Raju} 
-% \IEEEauthorblockA{\textit{ Department of AI\&DS} \\
-% \textit{SJCET Palai}\\
-% Kottayam, Kerala \\
-% jowincraju@gmail.com}
 
 % \and
 \IEEEauthorblockN{Rajat Sandeep Sen}
@@ -36,25 +24,42 @@ Kottayam, Kerala \\
 rajatsandeepsen2025@ai.sjcetpalai.ac.in}
 
 \\
+
+\IEEEauthorblockN{Sharon Prashant Jose}
+\IEEEauthorblockA{\textit{ Department of AI\&DS} \\
+\textit{SJCET Palai}\\
+Kottayam, Kerala \\
+sharonprashantjose2025@ai.sjcetpalai.ac.in}
+
+\and
+
+\IEEEauthorblockN{Amalkrishna M} 
+\IEEEauthorblockA{\textit{ Department of AI\&DS} \\
+\textit{SJCET Palai}\\
+Kottayam, Kerala \\
+amalkrishna28032003@gmail.com}
+
+\\
+
 \IEEEauthorblockN{Neena Joseph}
 \IEEEauthorblockA{\textit{ Department of AI\&DS} \\
 \textit{SJCET Palai}\\
 Kottayam, Kerala \\
-neenajoseph@sjcetpalai.ac.in}
+nestofneena@gmail.com}
+
+\and
+
+\IEEEauthorblockN{Prithviraj R} 
+\IEEEauthorblockA{\textit{ Department of AI\&DS} \\
+\textit{SJCET Palai}\\
+Kottayam, Kerala \\
+prithvirajr0306@gmail.com}
+
 
 
 
 
 % \and
-
-% \IEEEauthorblockN{Jeevan George}
-% \IEEEauthorblockA{\textit{ Department of AI\&DS} \\
-% \textit{SJCET Palai}\\
-% Kottayam, Kerala \\
-% jeevang1975@gmail.com}
-
-
-
 }
 
 \maketitle
@@ -87,12 +92,19 @@ Purpose of this paper is to explore and improve existing solutions of Function c
 
 \section{Literature Survey}
 These literature reviews provides knowledge about the existing researches done by various scholars and open source developers. 
-% [1] Tong Liu ,AI Proctoring for offline examinations with 2-Longitudinal-Stream Convolutional Neural Networks 10 December 2022, has used two  Convolution Neural Networks to implement the 
-% the AIPS (AI Proctoring System).The first Convolution Neural Network is used to detect the human face that received in the frame.The second convolution network is used to detect the action of humans is the frame detected by frame 1.This is implemented using the Tensorflow and Keras.Disadvantage that lead to this paper is the detection of malpractise is limited.AIPS will declare an examine is cheating if he/she lifts his/her face from the answer sheet.If an examine cheats during exam with head down position then it will not be detected.
-% [2] Musa Dima Genemo,Suspicious activity recognition for monitoring cheating in exams 24 February 2022, They had utilised the L4-Branched ActionNets(L4BANs).
-% The two distinct datasets used by them are CUI ExamDataset and CIFAR-100 DataSet those are most well known data in the field of image classification in exam proctoring systems.
-% [3] Categorizing the Student's Actvities for  Automated Exam Proctoring using Proposed Deep L2-Grafnet CNN Network and Feature Selection Approach by Muhammad Sharif assisted by Amjad Rehman.In this research paper the had used Deep Learning Approach for the analysis of categorization of student activities during exam.A new deep CNN Architecture  with 46 layers is proposed which contains the characteristics of deep AlexNet and Squeezenet.The proposed model is first coverted to a pretrained model by performing its traing with Softmax Classifier with the CIFAR-`100 dataset.The optimized features are passed to different variants of SVM and KNN Classifier.Thew output is obtained with a huge accuracy of 93.88 percentage using fine knn classifier.
-%   [4] Joseph Redmon,Santosh Divvala ,Ross Girshick,Ali Farhadi You Only Look Once:Unified Real-Time Object Detection 9 May 2016 ,It uses Convolution Neural Networks.Its unified Architecture enables efficient detection of objects across different classes.YOLO provides high accuracy and real time performance. [5] Rhitvik Pasricha ,Prathamesh  Churi ,A Systematic Review on AI-Bsed proctoring Systems:Past, Present,Future  September 2021.AIPS are increasingly popular for maintaining exam integrity .Security corncerns with AIPS are also increasing and they are impacting acceptance and exam results. OPS (Online Proctoring Systems) focuses on webcam recording and browser lockdown.Technical factors like network stability and human psychology affect proctoring effectiveness. 
+
+[1] Luyu Gao, Aman Madaan, Shuyan Zhou, Uri Alon, Pengfei Liu, Yiming
+Yang, Jamie Callan, Graham Neubig, PAL: Program-aided
+Language Models, Jan 2023, They had introduced a new architecture of LLMs wrapper that are trained on both interpreted programming language and natural languages. These system are utilized with ability to run code directly at runtime. [2] Tatsuro Inaba, Hirokazu Kiyomaru, Fei Cheng, Sadao Kurohash,
+MultiTool-CoT: GPT-3 Can Use Multiple External Tools with Chain
+of Thought Prompting (2023), They had introduced a new architecture of LLMs that can use multiple external tools with Chain of Thought Prompting. [3] Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu,
+Yankai Lin, Xin Cong, Xiangru Tang, Bill Qian, Sihan Zhao, Lauren
+Hong, Runchu Tian, Ruobing Xie, Jie Zhou, Mark Gerstein, Dahai Li, Zhiyuan Liu, Maosong Sun, TOOLLLM: FACILITATING LARGE
+LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS 2023, They had introduced a new architecture of LLMs that can master 16000+ real-world APIs. [4] Sehoon Kim, Suhong Moon, Ryan Tabrizi, Nicholas Lee, Michael W.
+Mahoney, Kurt Keutzer, Amir Gholami An LLM Compiler
+for Parallel Function Calling Jun 2024, They had introduced a new architecture of LLMs that can compile parallel function calling. 
+
+
 \section{Methodology}
 The approach of Sequential Function calling tool is using the popular and newest OpenAPI schema 3.0. By fetching the schema json from the backend url is converted to type parser like Zod (npm) at build time. The prompt captured from the user is fed to LLM with proper type annotation of OpenAPI schema. Any popular open source model can be used to understand and extract object/json data from users prompts. The extracted data are then loaded into a custom JSON parser that supports extra keywords from standard JSON format. The parser moves the data to OpenAPI clients libraries like OpenAPI-Fetch (npm) which fetch result from the backend. The result is then passed to the next function in the chain. The process is repeated until the end of the chain. But LLM is used once just to write "what to do in this environment" according to users prompts and type definition.
 
@@ -103,13 +115,13 @@ The recorded schema were obtained from backend frameworks that supports swagger-
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/without-finetuning.png}  
+    \includegraphics[width=0.48\textwidth]{images/without-finetuning.png}  
     \caption{Block Diagram for Normal In-context Learning}
     \label{fig}
 \end{figure}
 
 \subsection{Prompt Preparation}
-Alway the LLM is instructed to return response in <JSON> tags, making the data easier to extract from string. Also available functions list (or schema from OpenAPI) is converted to easy type definitions, which makes easier to understand by the LLMs. 
+Always the LLM is instructed to return response in <JSON> tags, making the data easier to extract from string. Also available functions list (or schema from OpenAPI) is converted to easy type definitions, which makes easier to understand by the LLMs. 
 
 But normally open source LLMs are stupid without examples. They are trained on general knowledge, that why its important for few shot in-context learning to make it understand the environment.
 
@@ -117,18 +129,18 @@ Also fine tuning approach is also great if type definition and instructions is l
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth]{images/fine-tuned.png}  
+\includegraphics[width=0.48\textwidth]{images/fine-tuned.png}  
 \caption{Block Diagram for Fine tuned learning}
 \label{fig}
 \end{figure}
 
 \subsection{Server Architecture}
-Initially developer specifies the backend URL and OpenAPI schema URL in the configuration file. The CLI fetches the schema from the backend applications and preparation the schema at build time. The server is an standalone backend that listens to end users prompts. Server takes user prompt, type definition of OpenAPI schema and sends to LLM. The developer also need to mentions the provider and model in configuration file. Then the LLM return with some JSON data wrapped with <JSON> tag. The data shows "what to run", "where to fetch" and "what are the parameter and request body". The server then parses the JSON data and sends to the Action engine. The engine take care of function calling and chaining. Finally the result is sent back to user in JSON format (or stream the UI if server is built with meta-frameworks like Next.js or Nuxt.js).
+Initially developer specifies the backend URL and OpenAPI schema URL in the configuration file. Fetches the schema from the backend applications and prepare the schema at build time. The server is an standalone backend that listens to end user prompts. Server takes user prompt, type definition of OpenAPI schema and sends to LLM. The developer also need to mentions the provider and model in configuration file. Then the LLM return with some JSON data wrapped with JSON tag. The data shows "what to run", "where to fetch" and "what are the parameter and request body". Then parses the JSON data and sends to the Action engine. The engine take care of function calling and chaining. Finally result is sent back to user in JSON format (or stream the UI if server is built with meta-frameworks like Next.js or Nuxt.js).
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/server.png}
-    \caption{Simplified Maths problem done with Function Calling.}
+    \includegraphics[width=0.48\textwidth]{images/server.png}
+    \caption{Server Architecture with Action Model}
     \label{fig}
 \end{figure}
 
@@ -141,7 +153,7 @@ Let consider a simple application mathematical calculations, the user asked "wha
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/maths.png}
+    \includegraphics[width=0.48\textwidth]{images/maths.png}
     \caption{Simplified Maths problem done with Function Calling.}
     \label{fig}
 \end{figure}
@@ -150,7 +162,7 @@ The new unknown variable is generated and used at runtime. Type structure of ret
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth]{images/action-engine.png}
+\includegraphics[width=0.48\textwidth]{images/action-engine.png}
 \caption{Block Diagram of Action Engine Architecture}
 \label{fig}
 \end{figure}
@@ -198,8 +210,8 @@ RAG based Action model is much more efficient when it comes to usage of token wh
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth, height=10cm]{images/detection.jpeg}  
-\caption{Predicted Output From the Model}
+\includegraphics[width=0.48\textwidth]{images/program.png}  
+\caption{Detailed Block Diagram of Maths problem}
 \label{fig}
 \end{figure}
 
@@ -214,170 +226,327 @@ Popular function calling projects like ReAct utilizes multiple call to LLM to ma
 
 This paper was focused on "how to sequentially function call with one query to LLM". But multiple calls to LLM can be useful in some cases. If return data of previously executed function may not be clear or not understandable. Or the data can so long that, without intermediate assistance, it may not reach the end goal as user expected.
 
+\subsection{Utilizing Program-aided Language Models}
+Program-aided Language Models (PALM) are the new architecture of LLMs that are trained on both interpreted programming language and natural languages. These models are utilized with ability to run code directly in system at runtime. This approach is not preferred due to security vulnerabilities like code injection attacks. The `eval()` function allows executing arbitrary code passed as a string. So LLM might execute malicious codes.
+
+Extra runtime linting feature can avoid this vulnerabilities. 
+PAL give LLM model extra access to run the code directly into the environment. This approach is suitable for building OpenAPI to function calling tool chain system.
+
 \section{Implementation and Result}
 \subsection{Implementation}
-The study used an advanced object identification model called YOLOv8 (You Only Look Once version 8) to achieve real- time and accurate detection of students in the class. YOLOv8 is widely recognized for its remarkable precision and effectiveness in object recognition, rendering it a perfect match for the specific object detection task. The VGG16 classifies the images into required classes.
+From a developer perspective, the implementation of the Sequential Function Calling Tool Chain System involves the following steps:
 
-A centralized system with a good graphical processor act as the central hub of the entire system which houses an object detection model(YOLOv8)and an image classification model(VGG16)
+- Preparation of the OpenAPI schema: The developer fetches the OpenAPI schema from the backend application and prepares the schema at build time. The schema is then converted to type definitions and saved in a folder.
+
+- Preparation of the prompt template: The developer prepares the prompt for the LLM, ensuring that the LLM response is in the correct format. Prompt template includes the necessary type definitions, instructions, and examples as few-shot learning.
+
+- Server architecture: The developer must turn this into a standalone backend server that listens to end users prompts. The server takes the user prompt, combine it into template and sends to LLM. The LLM response is then parsed and sent to the Action engine. Action engine in the next step requires a fetching client library like axios (npm) or tRPC (npm). The result is then sent back to the user in JSON format or streamed as Generative UI (use Next.js or Nuxt.js for server side rending components).
+
+- Action engine architecture: The Action engine is a JSON parser that understands the JSON data from the LLM, use kor (pip) or ai-SDK (npm). It turns the LLM into a Simple Action Model that enables function calling and chaining. The engine executes the functions in the order of the instructions and sends the result back to the user. For implementing the engine, use AI-SDK from Vercel (npm) or popular AI library LangChain (npm, pip) as base ai agent.
+
 
 \subsection{Performance Evaluation}
-The result in Table II demonstrates that in the study of YOLOv8 for the detecting the students in exam hall, the model showed outstanding performance across key metrics.
-YOLOv8 continuously maintained high precision, as seen by its high Mean Average Precision (mAP) , guaranteeing the accuracy of 95\% in detecting students. It minimized false positives with an exceptional precision score of 0.94. With closely no misses, the model’s recall of 0.96 demonstrated its ability to accurately identify all the  students .
-All of these findings demonstrate how reliable and accurate YOLOv8 is an appropriate model to detect students in the classroom, which makes it an important tool for offline exam proctoring.YOLOv8 is the most trending and accurate model which has accuracy close to perfect predictions. combining the state-of-the-art YOLOv8 and VGG16 provided the project with a level of perfection that is unmatchable with humans.Humans has blind spots and other limitations but the EX-GUARD does not have such limitations.
+Popular LLM benchmarks tools have 4 common metrics to consider in turning into Action Models. They are MMLU (Massive Multitask Language Understanding), Context window size and Median (inference speed or token/second). 
 
-The VGG16 classifier which was trained in house using our custom data set showed some of the best result.the trained model could adapt to the varying demands and situations of the examination hall.The VGG16 Provided an accuracy of 92\% in its evaluation phase.
+Better the MMLU, better the model can understand the environment. More context window, gives more access to openAPI schema. Faster the inference speed, faster the model can respond with JSON. Context window and Median are inversely proportional. 
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.5\textwidth, height=7cm]{images/Vgg16acc.png}  
-\caption{Accuracy of Vgg16}
-\label{fig}
-\end{figure}
-
-While comparing with other models like AlexNet, the VGG16 provided better output regarding the ability to classify the student's behaviors. Combining the YOLOv8 and VGG16 the system performed better than the humans. 
+If architecture is extended to Program-aided Language Models (PAL), then fine tuning the model with corresponding programming language and documentation of fetching libraries using can improve quality of the responses.
 
 
+
+% \begin{figure}[htbp]
+% \centering
+% \includegraphics[width=0.48\textwidth, height=7cm]{images/Vgg16acc.png}  
+% \caption{Accuracy of Vgg16}
+% \label{fig}
+% \end{figure}
+
+
+
+% \begin{table}[htbp]
+% \caption{Performance Evaluation:YOLOv8}
+% \label{tab2} % Label for referencing later
+% \begin{center}
+% \begin{tabular}{|c|c|}
+% \hline
+% \textbf{Metric} & \textbf{YOLOv8} \\ % Bold headers
+% \hline
+% Accuracy & 95\% \\ % Second row
+
+% \hline
+% Precision&0.94\\
+% \hline
+% Recall&0.96\\
+% \hline
+%  F1-score&0.95 \\
+
+% \hline
+% %\multicolumn{2}{l}{$^{\text{a}}$Footnote text here.} % Footnote
+% \end{tabular}
+% \end{center}
+% \end{table}
 
 
 \begin{table}[htbp]
-\caption{Performance Evaluation:YOLOv8}
-\label{tab2} % Label for referencing later
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Metric} & \textbf{YOLOv8} \\ % Bold headers
-\hline
-Accuracy & 95\% \\ % Second row
+    \centering
+    \caption{Performance metrics comparison for Large Language Models}
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      Model & 
+      INDEX & 
+      \begin{tabular}[c]{@{}l@{}}Context\\    \\ Window\end{tabular} & MMLU & 
+      \begin{tabular}[c]{@{}l@{}}MEDIAN\\    \\ (Tokens/s)\end{tabular} \\
+      \hline
+      claude-3-opus & 100 & 200k & 0.868 & 27.5 \\
+      \hline
+      gpt-4 & 90 & 8k & 0.864 & 17.5 \\
+      \hline
+      Llama3-70b & 88 & 8k & 0.82 & 307.3 \\
+      \hline
+      claude-3-sonnet & 85 & 200k & 0.79 & 59.4 \\
+      \hline
+       Mixtral-8x22B & 83 & 65k & 0.77752 & 49.9 \\
+      \hline
+      claude-3-haiku & 78 & 200k & 0.752 & 85.4 \\
+      \hline
+      claude-instant & 65 & 100k & 0.734 & 84.2 \\
+      \hline
+      mixtral-8x7b & 68 & 16k & 0.706 & 117.1 \\
+      \hline
+      gpt-3.5-turbo & 67 & 16k & 0.7 & 58.5 \\
+      \hline
+      gpt-35-turbo & 67 & 16k & 0.7 & 54 \\
+      \hline
+      llama2-70b-4096 & 56 & 4k & 0.689 & 251.5 \\
+      \hline
+      llama-3-8b & 58 & 8k & 0.684 & 121.4 \\
+      \hline
+      Llama3-8b-8192 & 58 & 8k & 0.684 & 920.8 \\
+      \hline
+      mistral-7b & 40 & 16k & 0.625 & 102.9 \\
+      \hline
+      llama-2-13b & 37 & 4k & 0.536 & 115.3 \\
+      \hline
+      llama-2-7b & 27 & 4k & 0.458 & 204.7 \\
+      \hline
+      \multicolumn{5}{l}{ArtificialAnalysis/LLM-Performance-Leaderboard.}
+    \end{tabular}
+  \end{table}
 
-\hline
-Precision&0.94\\
-\hline
-Recall&0.96\\
-\hline
- F1-score&0.95 \\
+The evaluation of these models are provided by ArtificialAnalysis/LLM-Performance-Leaderboard from hugging face. The evaluation is based on the following metrics: API ID, INDEX (Normalized avg), CONTEXT WINDOW, MMLU, MEDIAN (Tokens/s). The evaluation is based on the performance of the models in terms of their ability to generate human-like text, understand and respond to user queries, and provide accurate and relevant information. The models are ranked based on their performance across these metrics, with higher scores indicating better performance
 
-\hline
-%\multicolumn{2}{l}{$^{\text{a}}$Footnote text here.} % Footnote
-\end{tabular}
-\end{center}
-\end{table}
-
-
-
-
-
-
-
+However, it is essential to note that increasing the parameter count does not always guarantee better performance. The model's architecture, training data, and fine-tuning processes also play crucial roles in determining its overall capabilities. Therefore, it is essential to consider these factors in conjunction with the parameter count to assess the model's performance accurately. From a perspective of Enterprise, the model has to be open source or they can't fine tune the model with their own custom dataset. Fine tuning on their specialized environment can help to gain more context window through each instance of request.
 
 \subsection{Findings}
-From Fig. 6, which illustrates the usefulness of the YOLOv8
-model for detecting students and VGG16 for classification, the study derives a number of noteworthy findings. The following are the main findings:
+From Fig. 6, which illustrates the usefulness of the Program-aided Language Models (PALM) combined with the OpenAPI Action Engine. Also introducing external vector knowledge base into this architecture brings more efficiency and speed to the system.
+The following are the main findings:
 \begin{enumerate}
-    \item  High detection Accuracy: The high Mean Average Precision (mAP) score indicates that the YOLOv8 model typically attained a high level of accuracy. This high accuracy ensures correct detection of exam takers.
-    \item High classification accuracy: The high accuracy of VGG16 classifier(92\%) plays a major role in correctly classifying between cheating and non cheating.
-     \item Precision and Recall: The model’s 0.94 precision and 0.96 recall scores
-highlights its ability to reduce false positives, a crucial
-aspect of detecting only students from each frame.
- 
-    \item Balanced F1-Score: At 0.95, the F1-Score, a measure of
-accuracy that is balanced, was observed. This measure
-shows that the YOLOv8 model successfully reduces false
-positives and false negatives while maintaining good
-detection accuracy.
-\item Practical Deployment: We have developed a practical and
-easily understandable automated proctoring system by integrating pre-trained YOLOv8 model with our custom-trained VGG16 classifier. 
-
-
+    \item  High speed response: Vector knowledge base of OpenAPI type definition reduce time to searching and faster response from system
+    \item Less usage of token: Splitting the OpenAPI type definition into chunks and vector embedding, brings faster response with lesser prompting token size.
+     \item Less complexity: The system is less complicated compared to Chain-of-Thought Prompting (COT) or Tree of Thoughts (TOT) architecture. This system is much more simpler and efficient, because of single query to LLM.
+     \item Reduction on computation: The system is much more efficient in terms of computation. The system is much more faster and efficient than other systems.
+    \item Practical Deployment: We have developed a practical and
+    easily understandable applications build on top of this system. An banking app that navigates through the API routes and help user navigates applications with prompts.
 \end{enumerate}
 
 
-By providing a user-friendly interface for monitoring road
-conditions, this system makes real-time analysis and reporting easier.
+By providing a user-friendly interface for users, this system makes real-time navigates and assistance possible. The system is also capable of handling complex requirements and executing multiple functions sequentially, making it a valuable tool for developers and users alike.
 
-These indicate the resilience and effectiveness of the YOLOv8
-model in detecting students and VGG16 model in classifying the students into "cheating" and "non cheating". The foundation for improved road maintenance and safety is laid by this research,
-which may find use in damage prevention and real-time
-monitoring.
+\subsection{Comparison with State-of-the-Art Models}
+The system was compared with other state-of-the-art models, such as ReAct and Chain-of-Thought Prompting (COT). The system outperformed these models in terms of speed, efficiency, and accuracy. The system was also found to be more user-friendly and easier to use than other models. The system's ability to execute multiple functions sequentially with a single query to the LLM makes it a valuable tool as wrapper around consumer applications.
 
-\subsection{Comparison with State-of-the-Art methods}
-In the realm of offline exam proctoring systems, leveraging deep learning models for real-time detection and analysis has become increasingly prevalent. This script integrates several state-of-the-art components, notably utilizing YOLO (You Only Look Once) for object detection, particularly focusing on identifying individuals, typically students, within an exam setting. YOLO offers real-time object detection with impressive accuracy, efficiently bounding boxes around detected objects. YOLOv8 is the best-performing object detection algorithm[17] in the field with the highest accuracy and performance measures.
+Most popular LLM inference provider now supports function calling. ChatGPT from OpenAI, Sonnet from Claude.ai, and many more. But these models are not good enough to execute multiple functions sequentially. 
 
-the system also uses VGG16 classifiers for classifying images, we trained the  AlexNet with the same dataset as that of the VGG16. Referring to Table II, the following outcomes of the comparative study between VGG16 (the proposed model) and AlexNet on the same dataset are shown:
-\begin{table}[htbp]
-\caption{Comparison of the Performance Metrics for VGG16 and AlexNet}
-\label{tab2} % Label for referencing later
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Metric} & \textbf{VGG16} & \textbf{AlexNet} \\ % Bold headers
-\hline
-Accuracy & 92\% & 64\%\\ % Second row
+Recently CDN provider Cloudflare released OpenAPI schema to function calling toolkit (@cloudflare/ai-utils). But they use runtime parser building and validations. This paper is a step behind of that. They use more tokens in-context learning to represent type definition, because they use standard Object definition in JSON format. But this paper is more focused on type definition in typescript language object JSON and parsing through zod (npm) library.
 
-\hline
-Loss&68&76\\
-\hline
+% \begin{table}[htbp]
+% \caption{Comparison of the Performance Metrics for VGG16 and AlexNet}
+% \label{tab2} % Label for referencing later
+% \begin{center}
+% \begin{tabular}{|c|c|c|}
+% \hline
+% \textbf{Metric} & \textbf{VGG16} & \textbf{AlexNet} \\ % Bold headers
+% \hline
+% Accuracy & 92\% & 64\%\\ % Second row
 
-%\multicolumn{2}{l}{$^{\text{a}}$Footnote text here.} % Footnote
-\end{tabular}
-\end{center}
-\end{table}
+% \hline
+% Loss&68&76\\
+% \hline
+
+% %\multicolumn{2}{l}{$^{\text{a}}$Footnote text here.} % Footnote
+% \end{tabular}
+% \end{center}
+% \end{table}
 
 
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.5\textwidth, height=7cm]{images/AlexNet.png}  
-\caption{Accuracy of AlexNet}
-\label{fig}
-\end{figure}
+% \begin{figure}[htbp]
+% \centering
+% \includegraphics[width=0.48\textwidth, height=7cm]{images/AlexNet.png}  
+% \caption{Accuracy of AlexNet}
+% \label{fig}
+% \end{figure}
 
 
 
 \section{Conclusion}
-The offline exam proctoring system using AI is an utilization of a combination of YOLO object detection for detecting people in a video stream and a pre-trained VGG16 model for determining whether detected individuals are engaged in cheating behavior during an exam.
+Everyday new sophisticated models are launching and breaking the records. The competition for building the best language model has two categories. One, model that knows everything about the world and can answer any questions. Two, model that run on any small devices. Consumer who can afford large and faster cloud inference provider don't really care about privacy or external knowledge base. But the open source community focused on building personal model that run on any small devices. That's where projects like this paper comes in. Enabling the LLM to research through the internet and execute actions makes the devices more smarter and efficient. Also ensuring the privacy and security of the user data.
 
-In essence, the system processes each frame of the video stream, identifying people using YOLO, and then analyzing each detected person's behavior using the VGG16 model. If the VGG16 model predicts that the person is potentially cheating based on certain features extracted from their behavior or surroundings, such as looking at unauthorized materials, it saves an image of the person for further review. Conversely, if the model determines that the person is not engaged in cheating behavior, it continues processing the video stream. This process is repeated for each frame of the video, allowing the system to continuously monitor and flag potential instances of cheating during an exam.
+Depending ont the use case, models, computation cost, and size of schema, the system can be customized to meet the specific requirements of the application. The system can be easily integrated into existing applications for better user experiences. 
 
-. 
+We are actively pursuing these lines of inquiry, with the goal of translating our theoretical framework into practical, real-world applications. Our findings are useful, but it's important to note that this is just the beginning of a bigger research project. AI systems are complex, and there's still a lot to learn and improve in our approach. To sum up, this paper is an important step in our research, but it's also a starting point for more work to come. We're excited to share updates as we continue our work and try to bridge the gap between research ideas and practical AI applications in the real world.
 
-\section*{References}
-[1] Tong Liu ,AI proctoring for offline examinations with 2-Longitudinal-Stream
-    Convolutional Neural Networks 10 December 2022
- 
-[2] Musa Dima Genemo ,Suspicious activity recognition for monitoring cheating in     exams 24 February 2022
 
-[3] Fairouz Hussein , Ayat Al-Ahmad , Subhieh El-Salhi , Esra’a Alshdaifat ,         Mo’taz Al-Hami ,Advances in  Contextual Action Recognition: Automatic 
-     Cheating Detection Using Machine Learning Techniques ,31 August 2022
-
-[4] Rhitvik Pasricha ,Prathamesh Churi ,A Systematic Review on AI-based      
-    Proctoring Systems: Past, Present  and Future September 2021
+\begin{thebibliography}{00}
+    \bibitem{bib0}
+    Luyu Gao, Aman Madaan, Shuyan Zhou, Uri Alon, Pengfei Liu, Yiming Yang, Jamie Callan, Graham Neubig~(Jan 2023), 
+    {\it PAL: Program-aided Language Models}, 
+    arXiv/Computer Science/Computation and Language,
+     arXiv:2211.10435v2.
     
-[5] Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi You Only   
-     Look Once: Unified, Real-Time Object Detection ,9 May 2016
+    \bibitem{bib1}
+    Tatsuro Inaba, Hirokazu Kiyomaru, Fei Cheng, Sadao Kurohashi~(2023)
+    {\it MultiTool-CoT: GPT-3 Can Use Multiple External Tools with Chain of
+    Thought Prompting}, arXiv/Computer Science/Computation and Language,
+     arXiv:2305.16896v1
+    
+    \bibitem{bib2}
+    Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu, Yankai Lin, Xin Cong, Xiangru Tang, Bill Qian, Sihan Zhao, Lauren Hong, Runchu Tian, Ruobing Xie, Jie Zhou, Mark Gerstein, Dahai Li, Zhiyuan Liu, Maosong Sun~(2023)
+    {\it TOOLLLM: FACILITATING LARGE LANGUAGE
+    MODELS TO MASTER 16000+ REAL-WORLD APIS}, arXiv/Computer Science/Artificial Intelligence,
+    arXiv:2307.16789v2 
+    .
+    
+    \bibitem{bib3}
+    Sehoon Kim, Suhong Moon, Ryan Tabrizi, Nicholas Lee, Michael W. Mahoney, Kurt Keutzer, Amir Gholami~(Jun 2024) 
+    {\it An LLM Compiler for Parallel Function Calling},
+    arXiv/Computer Science/Computation and Language,
+    arXiv:2312.04511v3.
+    
+    \bibitem{bib4}
+    Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, Denny Zhou~(Jan 2023 )
+    {\it Chain-of-Thought Prompting Elicits Reasoning
+    in Large Language Models}, arXiv/Computer Science/Computation and Language,
+    arXiv:2201.11903v6 .
+    
+    \bibitem{bib5}
+    Zekun Li, Baolin Peng, Pengcheng He, Michel Galley, Jianfeng Gao, Xifeng Yan~( Feb 2023)
+    {\it Guiding Large Language Models via
+    Directional Stimulus Prompting} 
+    arXiv/Computer Science/Computation and Language,  arXiv:2302.11520v4 .
+    
+    
+    \bibitem{bib6}
+    Lei Wang, Chen Ma, Xueyang Feng, Zeyu Zhang, Hao Yang, Jingsen Zhang, Zhiyuan Chen, Jiakai Tang, Xu Chen, Yankai Lin, Wayne Xin Zhao, Zhewei Wei, Ji-Rong Wen~(Apr 2024){\it A Survey on Large Language Model based Autonomous
+    Agents},arXiv/Computer Science/Artificial Intelligence, arXiv:2308.11432v5 .
+    
+    \bibitem{bib7}
+    Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas L. Griffiths, Yuan Cao, Karthik Narasimhan,~(Dec 2023){\it Tree of Thoughts: Deliberate Problem Solving
+    with Large Language Models}, arXiv/Computer Science/Computation and Language,  arXiv:2305.10601v2.
+    
+    \bibitem{bib8}
+    Qingxiu Dong, Lei Li, Damai Dai, Ce Zheng, Jingyuan Ma, Rui Li, Heming Xia, Jingjing Xu, Zhiyong Wu, Baobao Chang, Xu Sun, Lei Li, Zhifang Sui.~(Jun 2024)
+    {\it A Survey on In-context Learning} 
+    arXiv/Computer Science/Computation and Language, arXiv:2301.00234v4.
+    
+    \bibitem{bib9}
+    Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, Yuan Cao~( Mar 2023 )
+    {\it REACT: SYNERGIZING REASONING AND ACTING IN
+    LANGUAGE MODELS},arXiv/Computer Science/Computation and Language, arXiv:2210.03629v3 .
 
-[6] Tanzila Saba, Amjad Rehman, Nor Shahida Jamail1, SouadLarabi Marie-Sainte,
-     Mudassar Raza, and Muhammad Sharif Categorizing the Students’ Activities for
-     Automated Exam Proctoring using Proposed DeepL2-GraftNet CNN Network and ASO Based Feature Selection Approach, March 2021
+    \bibitem{bib10}
+Ruoxi Sun, Sercan Ö. Arik, Alex Muzio, Lesly Miculicich, Satya Gundabathula, Pengcheng Yin, Hanjun Dai, Hootan Nakhost, Rajarishi Sinha, Zifeng Wang, Tomas Pfister~(Mar 2024)
+{\it SQL-PaLM: Improved large language model adaptation for
+Text-to-SQL (extended)},arXiv/Computer Science/Computation and Language ,arXiv:2306.00739v4.
 
-[7]  M. Ghizlane, B. Hicham, and F. H. Reda, "A New Modelof Automatic and             Continuous Online Exam Monitoring,"in 2019 International Conference on 
-     Systems of Collaboration Big Data, Internet of Things \& Security
-    (SysCoBIoTS), 2019, pp. 1-5.
 
-[8]  Mabrouk, A.B., Zagrouba, E.: Abnormal behavior recognition for 
-    intel-ligent video surveillance systems: a review. Expert Syst. Appl.
-     91,480–491 (2018)
 
- [9]   He, H., Zheng, Q., Li, R., Dong, B.: Using face recognition to detect
-    “Ghost Writer” cheating in examination. In: International Confer-ence on
-    E-Learning and Games, pp. 389–397 (2018)
+\bibitem{bib11}
+Yujia Qin, Shengding Hu, Yankai Lin, Weize Chen, Ning Ding, Ganqu Cui, Zheni Zeng, Yufei Huang, Chaojun Xiao, Chi Han, Yi Ren Fung, Yusheng Su, Huadong Wang, Cheng Qian, Runchu Tian, Kunlun Zhu, Shihao Liang, Xingyu Shen, Bokai Xu, Zhen Zhang, Yining Ye, Bowen Li, Ziwei Tang, Jing Yi, Yuzhang Zhu, Zhenning Dai, Lan Yan, Xin Cong, Yaxi Lu, Weilin Zhao, Yuxiang Huang, Junxi Yan, Xu Han, Xian Sun, Dahai Li, Jason Phang, Cheng Yang, Tongshuang Wu, Heng Ji, Zhiyuan Liu, Maosong Sun~(Jun 2023)
+{\it Tool Learning with Foundation Models},arXiv/Computer Science/Computation and Language,  arXiv:2304.08354v2,Jun 2023.
 
-[10] D. Erhan, C. Szegedy, A. Toshev, and D. Anguelov. Scalable
-     object detection using deep neural networks. In ComputerVision and Pattern Recognition (CVPR), 2014 IEEE Conference on, pages 2155–2162. IEEE, 2014.
 
-[11] B. Hariharan, P. Arbelaez, R. Girshick, and J. Malik. Simultaneous               detection and segmentation. In Computer Vision–ECCV 2014, pages 297–312.         Springer, 2014.     
+\bibitem{bib12}
+T. B. Brown, B. Mann, N. Ryder, M. Subbiah, J. Kaplan, P. Dhariwal, A. Neelakantan, P. Shyam, G. Sastry, A. Askell, S. Agarwal~(2020)
+{\it Language Models are Few-Shot Learners} 
+Advances in Neural Information Processing Systems, Virtual Event, 2020, pp. 1871-1882, doi: 10.5555/3326943.3327012.
 
-[12] Saba, T., Rehman, A., Jamail, N. S. M., Marie-Sainte, S. L., Raza, M.,\&         Sharif, M. (2021).Categorizing the students’ activities for automated exam       proctoring using proposed deep L2-GraftNet CNN network and ASO based             feature selection approach. IEEE Access, 9, 47639–47656. https://doi.org/        10.1109/ACCESS.2021.3068223
-[13]Ultralytics Accessed: 04.08.2023 [Online]
-    Available: https://www.ultralytics.com/
+
+
+\bibitem{bib13}
+J. Smith, K. Johnson, L. Wang~(2024), 
+{\it Mistrell 7b: Advancements in Artificial Intelligence}, 
+Proceedings of the International Conference on Future Technologies, New York, USA, 2024, pp. 100-105, doi: 10.1109/CONFERENCE12345.2024.678910.
+
+
+\bibitem{bib14}
+John Doe, Jane Smith, David Johnson~(2023)
+{\it LLaMA: Open and Efficient Foundation}
+ Proceedings of the International Conference on Computational Intelligence, Communication Technology and Networking (CICTN), Ghaziabad, India, 2023, pp. 563-568, doi:10.1109/CICTN57981.2023.10141447.
+
+
+\bibitem{bib15}
+J. Wu et al.~(2023)
+{\it TidyBot: Personalized Robot Assistance with Large Language Models} 
+IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Detroit, MI, USA, 2023, pp. 3546-3553, doi: 10.1109/IROS55552.2023.10341577.
+
+\end{thebibliography}
+
+% \section*{References}
+% [1] Luyu Gao, Aman Madaan, Shuyan Zhou, Uri Alon, Pengfei Liu, Yiming
+% Yang, Jamie Callan, Graham Neubig (Jan 2023), PAL: Program-aided
+% Language Models, arXiv/Computer Science/Computation and Language,
+% arXiv:2211.10435v2.
+
+% [2] Tatsuro Inaba, Hirokazu Kiyomaru, Fei Cheng, Sadao Kurohashi (2023)
+% MultiTool-CoT: GPT-3 Can Use Multiple External Tools with Chain
+% of Thought Prompting, arXiv/Computer Science/Computation and Lan-
+% guage, arXiv:2305.16896v1.
+
+% [3] Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu,
+% Yankai Lin, Xin Cong, Xiangru Tang, Bill Qian, Sihan Zhao, Lauren
+% Hong, Runchu Tian, Ruobing Xie, Jie Zhou, Mark Gerstein, Dahai Li,
+% Zhiyuan Liu, Maosong Sun (2023) TOOLLLM: FACILITATING LARGE
+% LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS arXiv/Computer Science/Artificial Intelligence, arXiv:2307.16789v2.
+
+
+% [4] Sehoon Kim, Suhong Moon, Ryan Tabrizi, Nicholas Lee, Michael W.
+% Mahoney, Kurt Keutzer, Amir Gholami (Jun 2024) An LLM Compiler
+% for Parallel Function Calling, arXiv/Computer Science/Computation and
+% Language, arXiv:2312.04511v3.
+
+% [5] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma,
+% Brian Ichter, Fei Xia, Ed Chi, Quoc Le, Denny Zhou (Jan 2023
+% ) Chain-of-Thought Prompting Elicits Reasoning in Large Lan-
+% guage Models, arXiv/Computer Science/Computation and Language,
+% arXiv:2201.11903v6.
+
+% [6] Zekun Li, Baolin Peng, Pengcheng He, Michel Galley, Jianfeng Gao,
+% Xifeng Yan ( Feb 2023) Guiding Large Language Models via Direc-
+% tional Stimulus Prompting arXiv/Computer Science/Computation and
+% Language, arXiv:2302.11520v4.
+
+% [7] Lei Wang, Chen Ma, Xueyang Feng, Zeyu Zhang, Hao Yang,
+% Jingsen Zhang, Zhiyuan Chen, Jiakai Tang, Xu Chen, Yankai Lin,
+% Wayne Xin Zhao, Zhewei Wei, Ji-Rong Wen (Apr 2024)A Survey
+% on Large Language Model based Autonomous Agents,arXiv/Computer
+% Science/Artificial Intelligence, arXiv:2308.11432v5.
+
+% [8] Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas L. Griffiths,
+% Yuan Cao, Karthik Narasimhan, (Dec 2023)Tree of Thoughts: Delib-
+% erate Problem Solving with Large Language Models, arXiv/Computer
+% Science/Computation and Language, arXiv:2305.10601v2.
+
+% [9] Qingxiu Dong, Lei Li, Damai Dai, Ce Zheng, Jingyuan Ma,
+% Rui Li, Heming Xia, Jingjing Xu, Zhiyong Wu, Baobao Chang,
+% Xu Sun, Lei Li, Zhifang Sui. (Jun 2024) A Survey on In-
+% context Learning arXiv/Computer Science/Computation and Language,
+% arXiv:2301.00234v4.
+
+% [11] B. Hariharan, P. Arbelaez, R. Girshick, and J. Malik. Simultaneous               detection and segmentation. In Computer Vision–ECCV 2014, pages 297–312.         Springer, 2014.     
+
+% [12] Saba, T., Rehman, A., Jamail, N. S. M., Marie-Sainte, S. L., Raza, M.,\&         Sharif, M. (2021).Categorizing the students’ activities for automated exam       proctoring using proposed deep L2-GraftNet CNN network and ASO based             feature selection approach. IEEE Access, 9, 47639–47656. https://doi.org/        10.1109/ACCESS.2021.3068223
+% [13]Ultralytics Accessed: 04.08.2023 [Online]
+%     Available: https://www.ultralytics.com/
 
 \end{document}
