@@ -57,7 +57,7 @@
 
     \\
 
-    \IEEEauthorblockN{Dr. Renjith Thomas}
+    \IEEEauthorblockN{Renjith Thomas}
     \IEEEauthorblockA{\textit{ Department of AI\&DS} \\
         \textit{SJCET Palai}\\
         Kottayam, Kerala \\
@@ -109,16 +109,16 @@ fine-tuning.
 These literature reviews provide knowledge about the existing research done by
 various scholars and open-source developers.
 
-    [1] Luyu Gao, Aman Madaan, Shuyan Zhou, Uri Alon, Pengfei Liu, Yiming
+    Luyu Gao, Aman Madaan, Shuyan Zhou, Uri Alon, Pengfei Liu, Yiming
 Yang, Jamie Callan, Graham Neubig, PAL: Program-aided
-Language Models, Jan 2023, They had introduced a new architecture of LLMs wrapper that are trained on both interpreted programming language and natural languages. These system are utilized with ability to run code directly at runtime. [2] Tatsuro Inaba, Hirokazu Kiyomaru, Fei Cheng, Sadao Kurohash,
+Language Models, Jan 2023 [1], They had introduced a new architecture of LLMs wrapper that are trained on both interpreted programming language and natural languages. These system are utilized with ability to run code directly at runtime. Tatsuro Inaba, Hirokazu Kiyomaru, Fei Cheng, Sadao Kurohash,
 MultiTool-CoT: GPT-3 Can Use Multiple External Tools with Chain
-of Thought Prompting (2023), They had introduced a new architecture of LLMs that can use multiple external tools with Chain of Thought Prompting. [3] Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu,
+of Thought Prompting (2023) [2], They had introduced a new architecture of LLMs that can use multiple external tools with Chain of Thought Prompting. Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu,
 Yankai Lin, Xin Cong, Xiangru Tang, Bill Qian, Sihan Zhao, Lauren
 Hong, Runchu Tian, Ruobing Xie, Jie Zhou, Mark Gerstein, Dahai Li, Zhiyuan Liu, Maosong Sun, TOOLLLM: FACILITATING LARGE
-LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS 2023, They had introduced a new architecture of LLMs that can master 16000+ real-world APIs. [4] Sehoon Kim, Suhong Moon, Ryan Tabrizi, Nicholas Lee, Michael W.
+LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS 2023 [3], They had introduced a new architecture of LLMs that can master 16000+ real-world APIs. Sehoon Kim, Suhong Moon, Ryan Tabrizi, Nicholas Lee, Michael W.
 Mahoney, Kurt Keutzer, Amir Gholami An LLM Compiler
-for Parallel Function Calling Jun 2024, They had introduced a new architecture of LLMs that can compile parallel function calling.
+for Parallel Function Calling Jun 2024 [4], They had introduced a new architecture of LLMs that can compile parallel function calling.
 
 \section{Methodology}
 The approach of the Sequential Function calling tool is using the popular and
@@ -398,12 +398,11 @@ proportional.
 % \end{table}
 
 \begin{table}[htbp]
-    \centering
     \caption{Performance metrics comparison for Large Language Models}
     \begin{tabular}{|c|c|c|c|c|}
         \hline
         Model                                                          &
-        INDEX                                                          &
+        Rank                                                          &
         \begin{tabular}[c]{@{}l@{}}Context\\    \\ Window\end{tabular} & MMLU &
         \begin{tabular}[c]{@{}l@{}}MEDIAN\\    \\ (Tokens/s)\end{tabular}                              \\
         \hline
@@ -462,6 +461,47 @@ or they can't fine tune the model with their own custom dataset. Fine tuning on
 their specialized environment can help to gain more context window through each
 instance of request.
 
+\begin{table}[htbp]
+    \caption{Technical comparison between existing solutions and our technique}
+    \scalebox{.91}{
+        {\renewcommand{\arraystretch}{2}%
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Library                     & Technique Result                & Function calling \\
+            \hline
+            LangChain Structural Output & Call Single Function          & Prompt based     \\
+            \hline
+            OpenAI Tool API     & Returns List of Functions     & Tool based       \\
+            \hline
+            Vercel's AI SDK             & Call list of functions        & Tool based       \\
+            \hline
+            Cloudflare's AI Utils             & Call list of functions        & Tool based       \\
+            \hline
+            Ours Technique              & Call nested list of functions & Both possible    \\
+            \hline
+            \multicolumn{3}{l}{ }
+        \end{tabular}}
+        }
+    \scalebox{1}{
+        {\renewcommand{\arraystretch}{2}%
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Library                     & JSON reconstruction & Token Usage \\
+            \hline
+            LangChain Structural Output & Use instructor lib          & High        \\
+            \hline
+            OpenAI Tool API     & Unknown             & Unknown     \\
+            \hline
+            Vercel's AI SDK             & Retry on failure    & Minimal     \\
+            \hline
+            Cloudflare's AI Utils             & None    & Minimal     \\
+            \hline
+            Ours Technique              & None    & High        \\
+            \hline
+        \end{tabular}}
+    }
+\end{table}
+
 \subsection{Findings}
 From Fig. 6, which illustrates the usefulness of the Program-aided Language
 Models (PALM) combined with the OpenAPI Action Engine. Also introducing
@@ -503,47 +543,6 @@ in-context learning to represent type definition, because they use standard
 Object definition in JSON format. But this paper is more focused on type
 definition in typescript language object JSON and parsing through zod (npm)
 library.
-
-\begin{table}[htbp]
-    \caption{Technical comparison between existing solutions and our technique}
-    \scalebox{.91}{
-        {\renewcommand{\arraystretch}{2}%
-        \begin{tabular}{|c|c|c|}
-            \hline
-            Library                     & Technique Result                & Function calling \\
-            \hline
-            LangChain Structural Output & Call Single Function          & Prompt based     \\
-            \hline
-            OpenAI Tool API     & Returns List of Functions     & Tool based       \\
-            \hline
-            Vercel's AI SDK             & Call list of functions        & Tool based       \\
-            \hline
-            Cloudflare's AI Utils             & Call list of functions        & Tool based       \\
-            \hline
-            Ours Technique              & Call nested list of functions & Both possible    \\
-            \hline
-            \multicolumn{3}{l}{ }
-        \end{tabular}}
-        }
-    \scalebox{1}{
-        {\renewcommand{\arraystretch}{2}%
-        \begin{tabular}{|c|c|c|}
-            \hline
-            Library                     & JSON reconstruction & Token Usage \\
-            \hline
-            LangChain Structural Output & Use instructor lib          & High        \\
-            \hline
-            OpenAI Tool API     & Unknown             & Unknown     \\
-            \hline
-            Vercel's AI SDK             & Retry on failure    & Minimal     \\
-            \hline
-            Cloudflare's AI Utils             & None    & Minimal     \\
-            \hline
-            Ours Technique              & None    & High        \\
-            \hline
-        \end{tabular}}
-    }
-\end{table}
 
 % \begin{table}[htbp]
 % \caption{Comparison of the Performance Metrics for VGG16 and AlexNet}
